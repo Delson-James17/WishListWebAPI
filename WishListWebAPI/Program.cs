@@ -23,18 +23,18 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddSwaggerGen(opt =>
 {
-    /* opt.SwaggerDoc("v1", new OpenApiInfo { Title = "WishListWebAPI", Version = "v1" });
-     opt.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-     {
-         In = ParameterLocation.Header,
-         Description = "Please enter token",
-         Name = "Authorization",
-         Type = SecuritySchemeType.Http,
-         BearerFormat = "JWT",
-         Scheme = "bearer"
-     });*/
+    opt.SwaggerDoc("v1", new OpenApiInfo { Title = "WishListWebAPI", Version = "v1" });
+    opt.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        In = ParameterLocation.Header,
+        Description = "Please enter token",
+        Name = "Authorization",
+        Type = SecuritySchemeType.Http,
+        BearerFormat = "JWT",
+        Scheme = "bearer"
+    });
 
-   
+
     opt.AddSecurityRequirement(new OpenApiSecurityRequirement
     {
         {
@@ -73,7 +73,7 @@ builder.Services.AddSwaggerGen(opt =>
         }
     });
 });
-// policy who can access it
+/*// policy who can access it
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 builder.Services.AddCors(opt =>
 {
@@ -84,7 +84,7 @@ builder.Services.AddCors(opt =>
             .AllowAnyMethod();
         }
    );
-});
+});*/
 
 var app = builder.Build();
 
@@ -94,7 +94,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-app.UseCors(MyAllowSpecificOrigins);
+//app.UseCors(MyAllowSpecificOrigins);
 
 app.UseAuthorization();
 app.MapControllers();
