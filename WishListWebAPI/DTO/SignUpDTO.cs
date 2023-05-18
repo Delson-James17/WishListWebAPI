@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace ContactAPI.DTO
+namespace WishListWebAPI.DTO
 {
     public class SignUpDTO
     {
@@ -14,7 +14,6 @@ namespace ContactAPI.DTO
         [Required(ErrorMessage = "Password field is required.")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
-        [RegularExpression(@"^[0-9]{11}$", ErrorMessage = "Contact number must be 11-digit number.")]
-        public string ContactNo { get; set; }
     }
+
 }
